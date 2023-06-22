@@ -25,8 +25,8 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         try:
-  #          city = input('Enter a city (Chicago, New York, or Washington): ')
-            city = 'Chicago'
+            city = input('Enter a city (Chicago, New York, or Washington): ')
+  #          city = 'Chicago'
   #          city = 'washington'
 
             print(city)
@@ -52,10 +52,10 @@ def get_filters():
     days = [ 0, 1, 2, 3, 4, 5, 6, 7]
     while True:
         try:
-            day = input('Enter a numerical value for the day of the week (monday=0, tuesday=1, ... sunday=6, all=7): ')
+            day = int(input('Enter a numerical value for the day of the week (monday=0, tuesday=1, ... sunday=6, all=7): '))
             if (int(day) in days):
                 break
-        except TypeError:
+        except ValueError:
             print('\nThat is not a valid entry.\n')  
 
     print('-'*40)

@@ -25,8 +25,8 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         try:
-            city = input('Enter a city (Chicago, New York, or Washington): ')
-  #          city = 'Chicago'
+  #          city = input('Enter a city (Chicago, New York, or Washington): ')
+            city = 'Chicago'
   #          city = 'washington'
 
             print(city)
@@ -48,13 +48,12 @@ def get_filters():
         except TypeError:
             print('\nThat is not a valid entry.\n')  
 
-    # get user input for day of week (all, monday, tuesday, ... sunday)
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
+    # get user input for day of week (monday=0, tuesday=1, ... sunday=6, all=7)
+    days = [ 0, 1, 2, 3, 4, 5, 6, 7]
     while True:
         try:
-            day = input('Enter a day of the week or select all: ')
-            day = day.lower()
-            if day in days:
+            day = input('Enter a numerical value for the day of the week (monday=0, tuesday=1, ... sunday=6, all=7): ')
+            if (int(day) in days):
                 break
         except TypeError:
             print('\nThat is not a valid entry.\n')  
@@ -96,9 +95,9 @@ def load_data(city, month, day):
      #   print(df)
 
     # filter by day of week if applicable
-    if day != 'all':
+    if int(day) != 7:
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == convert_day_to_numeric(day)]
+        df = df[df['day_of_week'] == int(day)]    
         print(df)
 
     return df
@@ -187,14 +186,6 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
-
-def convert_day_to_numeric(day):
-    """Returns day of the week as a numeric number."""
-    
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-    day_number = days.index(day)
-    return day_number
 
 
 def raw_data(df):

@@ -31,7 +31,7 @@ prompts the user to perform the following statistical computations.
 - earliest, most recent, most common year of birth (only available for NYC and Chicago)
 
 #5 Raw data:
-    Script also prompts the user whether they would like to see the raw data, displaying 5 rows at a time.
+- Script also prompts the user whether they would like to see the raw data, displaying 5 rows at a time.
 
 ### Files used
 - chicago.csv

@@ -212,8 +212,8 @@ def raw_data(df):
                 end = counter + 5
                 if end > num_rows:
                     end = num_rows
-                for i in range(counter, end):
-                    print(df.iloc[i], '\n')
+                # prints database in a table format
+                print(df[counter : end], '\n')
                 answer = input('Would you like to see more raw data? (\'y\' to continue)')
                 answer = answer.lower()  
                 if ((answer != 'yes' and answer != 'y') or end == num_rows):
